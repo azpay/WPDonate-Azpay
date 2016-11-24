@@ -1,0 +1,238 @@
+
+.checkout-white { color: white !important; }
+.hide { display: none !important; }
+.checkout-flex { display: flex; }
+.checkout-mrg-btm {margin-bottom: 1.5rem;}
+.checkout-blue { color: $checkout-header-color !important;}
+
+.loading-pay-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, .8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-pay {
+  width: 100px;
+  height: 100px;
+}
+
+.inline-select-wrapper {
+  flex: 1 0 auto;
+  min-width: 125px;
+}
+.inline-select {
+  border: 1px solid #ddd;
+}
+.select-currency-wrapper {
+  width: 120px;
+  min-width: 120px;
+}
+.select-currency {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 1px solid #ddd;
+}
+
+.donation-value {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.slash-date {
+  padding: 10px;
+}
+
+.checkout-bg {
+  display: none;
+}
+
+.checkout-container {
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+
+.checkout-header {
+  background-color: $checkout-header-color;
+}
+
+.checkout-wrapper {
+  font-family: inherit, helvetica,  sans-serif;
+  -webkit-font-smoothing: antialiased;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 680px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	box-shadow: 0 0 10px rgba(0,0,0,.15);
+}
+
+.checkout-valor-wrapper {
+	padding-top: 20px;
+	padding-bottom: 10px;
+	background-color: $checkout-header-color-ligth;
+}
+
+.checkout-aba {
+	padding: .8rem;
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+	background-color: darken($checkout-header-color, 3%);
+	opacity: .9;
+	cursor: pointer;
+
+	&.on {
+		background-color: $checkout-header-color-ligth;
+		opacity: 1;
+	}
+}
+
+.checkout-title-wrapper {
+	position: relative;
+	z-index: 1;
+	text-align: center;
+	padding: 1.5rem 0;
+
+	&.second {
+		box-shadow: 0 0 10px rgba(0,0,0,.15);
+    background-color: white;
+	}
+}
+
+.checkout-title {
+  color: white;
+  font-size: 26px;
+  &.title-two {
+    color: $color-2;
+  }
+}
+
+.checkout-body {
+	position: relative;
+	flex: 0 1 auto;
+	background-color: $checkout-body-color;
+}
+
+.checkout-form {
+	padding-top: 2rem;
+}
+
+.checkout-btn {
+  border: none;
+  border-radius: 4px;
+  display: inline-block;
+  height: 44px;
+  line-height: 44px;
+  padding: 0 1.4rem;
+  outline: 0;
+  font-size: 18px;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  color: #fff;
+  background-color: $checkout-btn-color;
+  text-align: center;
+  letter-spacing: .5px;
+  transition: all .2s ease-out;
+  cursor: pointer;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+
+  &:hover {
+    background-color: lighten($checkout-btn-color, 5%);
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
+  }
+}
+
+.checkout-footer {
+	padding: 25px;
+	position: relative;
+	z-index: 1;
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0,0,0,.15);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.paymode-action {
+	display: none;
+}
+
+.checkout-modal-footer {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	text-align: center;
+}
+.cardInfoLabel {
+	padding: 15px 0;
+  font-size: 18px;
+	border-top: 1px solid darken($checkout-body-color, 7%);
+	color: $_blue;
+}
+.donation-value-wrapper {
+  flex: 1;
+}
+
+@media only screen and (min-width: $small) {
+  .checkout-title {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (min-width: 680px) {
+  .checkout-header {
+    background-color: rgba($_blue, .95);
+  }
+  .checkout-bg {
+    display: block;
+  	position: fixed;
+  	top: 0;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+  	z-index: -1;
+    background-color: $checkout-background-color;
+  }
+}
+
+@media only screen and (min-width: $medium) {
+  .checkout-btn {
+    height: 55px;
+    line-height: 55px;
+  }
+  .select-currency-wrapper {
+    width: 130px;
+  }
+
+	.checkout-title-wrapper {
+		padding: 2rem 0;
+	}
+	.checkout-container {
+		padding: 0 30px;
+	}
+	.confirm-btn {
+		float: right;
+	}
+	.change-currency {
+		padding-bottom: 0;
+	}
+
+	.checkout-modal-footer {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+}
+
+@media only screen and (min-width: $large) {
+
+}

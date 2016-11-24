@@ -1,0 +1,164 @@
+
+/* /// VARIABLES /// */
+// Grid
+$gutter: 1rem;
+$lg-gutter: 1rem;
+$total-columns: 12;
+
+// One column width 
+$col-1: 100% / $total-columns;
+
+// One division width 
+$div-1: 100%;
+
+
+// Class prefixes
+$grid: (
+  tn: 0,
+  sm: $small,
+  md: $medium,
+  lg: $large
+);
+
+// Container max-width
+$max-container-width: 1280px;
+
+
+/* /// MIXINS /// */
+
+// Set column width
+@mixin set-col-width ($val) { 
+  width: $col-1 * $val;
+}
+
+// Set column margin left
+@mixin set-col-margin-left ($val) {
+  margin-left: $col-1 * $val;  
+}
+
+// Set division width
+@mixin set-div-width ($val) {
+  width: $div-1 / $val;
+}
+
+// Set division margin left
+@mixin set-div-margin-left ($val) {
+  margin-left: $div-1 / $val;
+}
+
+// Clearfix 
+@mixin clearfix {
+  *zoom:1;
+  &:before, &:after { 
+    content: ""; display:table;
+  }
+  &:after { 
+    clear:both;
+  }
+}
+
+// Media query
+@mixin mediaquery ( $val ){
+  @if $val == 0 {
+    @content;
+  } @else {
+    @media only screen and (min-width: $val) {
+      @content;
+    }
+  }
+}
+
+.full-container, .container {
+  position: relative;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: $max-container-width;
+  padding-left: $gutter;
+  padding-right: $gutter; 
+}
+
+.row, .-row{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: inherit;
+  align-items: stretch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.-row {
+  margin-left: -$gutter;
+  margin-right: -$gutter;
+}
+
+.col, .full-col, .division, .full-division{
+  position: relative; 
+}
+
+.col, .division {
+  padding-left:  $gutter;
+  padding-right: $gutter; 
+}
+
+@media only screen and (min-width: $xsmall) {
+  .container {
+    width: 90%;
+    padding-left:  0;
+    padding-right: 0;
+  }
+}
+
+
+@media only screen and (min-width: $small) {
+  .container {
+    width: 85%;
+  }
+}
+
+@media only screen and (min-width: $medium) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: $large) {
+  .container {
+    width: 70%;
+  }    
+
+  .col, .division {
+    padding-left:  $lg-gutter;
+    padding-right: $lg-gutter; 
+  }
+
+  .-row {
+    margin-left: -$lg-gutter;
+    margin-right: -$lg-gutter;
+  }  
+}
+
+@each $classname, $breakpoint in $grid {
+  @include mediaquery ($breakpoint) {
+    @for $i from 1 through $total-columns {
+      .col, .full-col {
+        &.#{$classname}-#{$i} {
+          @include set-col-width($i);
+        }
+        &.#{$classname}-left-#{$i} {
+          @include set-col-margin-left($i);
+        }
+      }
+      .division, .full-division {
+        &.#{$classname}-#{$i} {
+          @include set-div-width($i);
+        }
+        &.#{$classname}-left-#{$i} {
+          @include set-div-margin-left($i);
+        }
+      } 
+    }     
+  }
+}

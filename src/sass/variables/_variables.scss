@@ -1,0 +1,19 @@
+// Colors
+$_blue: rgb(47, 95, 149);
+$_white: #fff;
+$color-2: #5cbd80;
+
+// Breakpoints
+$xxlarge: 1800px;
+$xlarge:  1680px;
+$large:   1280px;
+$medium:  980px;
+$small:   720px;
+$xsmall:  480px;
+
+// Checkout vars
+$checkout-header-color: rgb(47, 95, 149);
+$checkout-header-color-ligth: lighten($checkout-header-color, 10%);
+$checkout-body-color: rgba(235,235,235,0.95);
+$checkout-btn-color: #26a69a;
+$checkout-background-color: #bac2cc;
