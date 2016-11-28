@@ -44,6 +44,10 @@ if ( !class_exists('WP_AZPayCheckout') ) {
 				[
 					'title' => 'BIN',
 					'value' => '25'
+				],
+				[
+					'title' => 'GETNET',
+					'value' => '22'
 				]
 			),
 
@@ -79,6 +83,10 @@ if ( !class_exists('WP_AZPayCheckout') ) {
 				[
 					'title' => 'BIN',
 					'value' => '25'
+				],
+				[
+					'title' => 'GETNET',
+					'value' => '22'
 				]
 			),
 
